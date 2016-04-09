@@ -28,6 +28,14 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @return ServiceProvider\ConfigServiceProvider
+     */
+    protected function getConfigServiceProviderForMonolog()
+    {
+        return $this->getConfigServiceProvider('monolog/config', 'yml', ['root_dir' => __DIR__]);
+    }
+
+    /**
      * @param string $config
      * @param string $extension
      *

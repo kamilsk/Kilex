@@ -4,7 +4,7 @@
 
 ## [Documentation](http://kamilsk.github.io/Kilex/)
 
-## Usage example
+## Examples of usage
 
 ### [Cilex Service Providers](https://github.com/kamilsk/CilexServiceProviders)
 

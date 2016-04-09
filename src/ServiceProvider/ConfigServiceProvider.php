@@ -11,9 +11,9 @@ use Symfony\Component\Config\FileLocator;
 class ConfigServiceProvider
 {
     /** @var string */
-    private $filename;
+    protected $filename;
     /** @var array */
-    private $placeholders;
+    protected $placeholders;
 
     /**
      * @param string $filename
@@ -37,8 +37,10 @@ class ConfigServiceProvider
      * @throws \Symfony\Component\Config\Exception\FileLoaderLoadException
      * @throws \Symfony\Component\Config\Exception\FileLoaderImportCircularReferenceException
      * @throws \DomainException
+     *
+     * @api
      */
-    protected function init(\Pimple $app)
+    public function setup(\Pimple $app)
     {
         $app['config'] = $app::share(function () {
             $ext = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));

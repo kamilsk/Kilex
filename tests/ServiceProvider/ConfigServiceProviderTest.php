@@ -24,10 +24,10 @@ class ConfigServiceProviderTest extends TestCase
     /**
      * @test
      */
-    public function registerJsonConfig()
+    public function setupJsonConfig()
     {
         $app = $this->getApplication();
-        $this->invokeInit($this->getConfigServiceProvider('config', 'json'), $app);
+        $this->getConfigServiceProvider('config', 'json')->setup($app);
         foreach ($this->expected as $key => $value) {
             self::assertEquals($value, $app['config'][$key]);
         }
@@ -36,10 +36,10 @@ class ConfigServiceProviderTest extends TestCase
     /**
      * @test
      */
-    public function registerPhpConfig()
+    public function setupPhpConfig()
     {
         $app = $this->getApplication();
-        $this->invokeInit($this->getConfigServiceProvider('config', 'php'), $app);
+        $this->getConfigServiceProvider('config', 'php')->setup($app);
         foreach ($this->expected as $key => $value) {
             self::assertEquals($value, $app['config'][$key]);
         }
@@ -48,10 +48,10 @@ class ConfigServiceProviderTest extends TestCase
     /**
      * @test
      */
-    public function registerYamlConfig()
+    public function setupYamlConfig()
     {
         $app = $this->getApplication();
-        $this->invokeInit($this->getConfigServiceProvider('config', 'yml'), $app);
+        $this->getConfigServiceProvider('config', 'yml')->setup($app);
         foreach ($this->expected as $key => $value) {
             self::assertEquals($value, $app['config'][$key]);
         }
@@ -60,26 +60,15 @@ class ConfigServiceProviderTest extends TestCase
     /**
      * @test
      */
-    public function registerUnsupportedConfig()
+    public function setupUnsupportedConfig()
     {
         try {
             $app = $this->getApplication();
-            $this->invokeInit($this->getConfigServiceProvider('config', 'xml'), $app);
+            $this->getConfigServiceProvider('config', 'xml')->setup($app);
             $app->offsetGet('config');
             self::fail(sprintf('%s exception expected.', \DomainException::class));
         } catch (\DomainException $e) {
             self::assertTrue(true);
         }
-    }
-
-    /**
-     * @param ConfigServiceProvider $config
-     * @param \Pimple $app
-     */
-    private function invokeInit(ConfigServiceProvider $config, \Pimple $app)
-    {
-        $reflection = (new \ReflectionObject($config))->getMethod('init');
-        $reflection->setAccessible(true);
-        $reflection->invoke($config, $app);
     }
 }
