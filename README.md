@@ -2,6 +2,14 @@
 >
 > Bridge between [Cilex](https://github.com/Cilex/Cilex) and [Silex](https://github.com/silexphp/Silex).
 
+## [Documentation](http://kamilsk.github.io/Kilex/)
+
+## Usage example
+
+### [Cilex Service Providers](https://github.com/kamilsk/CilexServiceProviders)
+
+### [Tinkoff Currency Analyst](https://github.com/kamilsk/TinkoffCurrencyAnalyst)
+
 ## Installation
 
 ### Git (development)

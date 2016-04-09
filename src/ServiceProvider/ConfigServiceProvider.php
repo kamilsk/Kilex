@@ -28,6 +28,8 @@ class ConfigServiceProvider
     }
 
     /**
+     * @quality:method [B]
+     *
      * @param \Pimple $app
      *
      * @throws \InvalidArgumentException
