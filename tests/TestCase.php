@@ -36,6 +36,14 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @return ServiceProvider\ConfigServiceProvider
+     */
+    protected function getConfigServiceProviderForDoctrine()
+    {
+        return $this->getConfigServiceProvider('doctrine/config', 'yml');
+    }
+
+    /**
      * @param string $config
      * @param string $extension
      *

@@ -8,7 +8,7 @@
 
 ### [Cilex Service Providers](https://github.com/kamilsk/CilexServiceProviders)
 
-### [Tinkoff Currency Analyst](https://github.com/kamilsk/TinkoffCurrencyAnalyst)
+### [Silex Service Providers](https://github.com/kamilsk/SilexServiceProviders)
 
 ## Installation
 
@@ -24,8 +24,16 @@ $ git remote add upstream git@github.com:kamilsk/Kilex.git
 
 ### Composer (production)
 
+For Cilex:
+
 ```bash
-$ composer require kamilsk/kilex:1.x-dev
+$ composer require kamilsk/cilex-service-providers:~3.1
+```
+
+For Silex:
+
+```bash
+$ composer require kamilsk/silex-service-providers:~1.0
 ```
 
 ## Pulse of repository
