@@ -5,6 +5,8 @@ namespace OctoLab\Kilex\ServiceProvider;
 use Monolog\Logger;
 use OctoLab\Kilex\TestCase;
 use Psr\Log\LoggerInterface;
+use Symfony\Bridge\Monolog\Handler\ConsoleHandler;
+use Symfony\Component\Console\Output\BufferedOutput;
 
 /**
  * @author Kamil Samigullin <kamil@samigullin.info>
@@ -26,6 +28,12 @@ class MonologServiceProviderTest extends TestCase
         self::assertInstanceOf(Logger::class, $app['loggers']['db']);
         self::assertEquals($app['logger'], $app['loggers'][$app['config']['monolog:default_channel']]);
         self::assertEquals($app['app.name'], $app['logger']->getName());
+        $output = new BufferedOutput();
+        $app['monolog.bridge']($output);
+        /** @var \Monolog\Logger $logger */
+        foreach ($app['loggers'] as $logger) {
+            self::assertInstanceOf(ConsoleHandler::class, $logger->popHandler());
+        }
     }
 
     /**
