@@ -24,13 +24,13 @@ $ git remote add upstream git@github.com:kamilsk/Kilex.git
 
 ### Composer (production)
 
-For Cilex:
+#### Cilex
 
 ```bash
 $ composer require kamilsk/cilex-service-providers:~3.1
 ```
 
-For Silex:
+#### Silex
 
 ```bash
 $ composer require kamilsk/silex-service-providers:~1.0
