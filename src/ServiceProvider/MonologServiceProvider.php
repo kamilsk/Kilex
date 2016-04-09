@@ -26,8 +26,9 @@ class MonologServiceProvider
             return;
         }
         $config = $app->offsetGet('config');
+        $app['app.name'] = $app->offsetExists('app.name') ? $app['app.name'] : 'app';
         $app['loggers'] = $app::share(function (\Pimple $app) use ($config) {
-            return new LoggerLocator($config['monolog'], $app->offsetExists('app.name') ? $app['app.name'] : 'app');
+            return new LoggerLocator($config['monolog'], $app['app.name']);
         });
         $app['logger'] = $app::share(function (\Pimple $app) {
             return $app['loggers']->getDefaultChannel();

@@ -28,8 +28,7 @@ class MonologServiceProviderTest extends TestCase
         self::assertInstanceOf(Logger::class, $app['loggers']['db']);
         self::assertEquals($app['logger'], $app['loggers'][$app['config']['monolog:default_channel']]);
         self::assertEquals($app['app.name'], $app['logger']->getName());
-        $output = new BufferedOutput();
-        $app['monolog.bridge']($output);
+        $app['monolog.bridge'](new BufferedOutput());
         /** @var \Monolog\Logger $logger */
         foreach ($app['loggers'] as $logger) {
             self::assertInstanceOf(ConsoleHandler::class, $logger->popHandler());
