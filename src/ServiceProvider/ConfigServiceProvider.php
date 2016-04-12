@@ -28,8 +28,6 @@ class ConfigServiceProvider
     }
 
     /**
-     * @quality:method [B]
-     *
      * @param \Pimple $app
      *
      * @throws \InvalidArgumentException
@@ -39,6 +37,8 @@ class ConfigServiceProvider
      * @throws \DomainException
      *
      * @api
+     *
+     * @quality:method [B]
      */
     public function setup(\Pimple $app)
     {

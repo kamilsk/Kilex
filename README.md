@@ -22,6 +22,12 @@ $ cd Kilex && composer install
 $ git remote add upstream git@github.com:kamilsk/Kilex.git
 ```
 
+#### Mirror
+
+```bash
+$ git remote add mirror git@bitbucket.org:kamilsk/kilex.git
+```
+
 ### Composer (production)
 
 #### Cilex

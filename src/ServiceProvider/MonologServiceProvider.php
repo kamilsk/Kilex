@@ -12,13 +12,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 class MonologServiceProvider
 {
     /**
-     * @quality:method [B]
-     *
      * @param \Pimple $app
      *
      * @throws \InvalidArgumentException
      *
      * @api
+     *
+     * @quality:method [B]
      */
     public function setup(\Pimple $app)
     {

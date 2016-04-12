@@ -11,13 +11,13 @@ use OctoLab\Common\Doctrine\Util\ConfigResolver;
 class DoctrineServiceProvider
 {
     /**
-     * @quality:method [B]
-     *
      * @param \Pimple $app
      *
      * @throws \Doctrine\DBAL\DBALException
      *
      * @api
+     *
+     * @quality:method [B]
      */
     public function setup(\Pimple $app)
     {
