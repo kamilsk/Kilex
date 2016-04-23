@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "kamilsk/common": "~3.0@dev"
+    "kamilsk/common": "~3.0"
   },
   "require-dev": {
     "cilex/cilex": "~1.0",
@@ -20,11 +20,11 @@
     "symfony/monolog-bridge": "~3.0"
   },
   "suggest": {
-    "cilex/cilex": "to integrate with Cilex (~1.0 is recommended)",
-    "doctrine/dbal": "for DoctrineServiceProvider (~2.0 is recommended)",
-    "monolog/monolog": "for use MonologServiceProvider (~1.0 is recommended)",
-    "silex/silex": "to integrate with Silex (~1.0 is recommended)",
-    "symfony/config": "for use ConfigServiceProvider (~3.0 is recommended)",
+    "cilex/cilex": "for integration with Cilex (~1.0 is recommended)",
+    "doctrine/dbal": "for using DoctrineServiceProvider (~2.0 is recommended)",
+    "monolog/monolog": "for using MonologServiceProvider (~1.0 is recommended)",
+    "silex/silex": "for integration with Silex (~1.0 is recommended)",
+    "symfony/config": "for using ConfigServiceProvider (~3.0 is recommended)",
     "symfony/monolog-bridge": "optional for MonologServiceProvider (~3.0 is recommended)"
   },
   "autoload": {

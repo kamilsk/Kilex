@@ -4,7 +4,8 @@ declare(strict_types = 1);
 
 namespace OctoLab\Kilex\ServiceProvider;
 
-use OctoLab\Common\Monolog\LoggerLocator;
+use OctoLab\Common\Monolog\Service\ComponentFactory;
+use OctoLab\Common\Monolog\Service\Locator;
 use Symfony\Bridge\Monolog\Handler\ConsoleHandler;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -24,12 +25,9 @@ class MonologServiceProvider
      */
     public function setup(\Pimple $app)
     {
-        if (!$app->offsetExists('config') || !isset($app->offsetGet('config')['monolog'])) {
-            return;
-        }
         $config = $app->offsetGet('config');
         $app['loggers'] = $app::share(function (\Pimple $app) use ($config) {
-            return new LoggerLocator((array)$config['monolog'], $app['app.name']);
+            return new Locator((array)$config['monolog'], $app['monolog.component_factory'], $app['app.name']);
         });
         $app['logger'] = $app::share(function (\Pimple $app) {
             return $app['loggers']->getDefaultChannel();
@@ -45,6 +43,9 @@ class MonologServiceProvider
                     }
                 }
             };
+        });
+        $app['monolog.component_factory'] = $app::share(function () {
+            return ComponentFactory::withDefaults();
         });
     }
 }

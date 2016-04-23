@@ -33,13 +33,13 @@ $ git remote add mirror git@bitbucket.org:kamilsk/kilex.git
 #### Cilex
 
 ```bash
-$ composer require kamilsk/cilex-service-providers:~3.1
+$ composer require kamilsk/cilex-service-providers:~4.0
 ```
 
 #### Silex
 
 ```bash
-$ composer require kamilsk/silex-service-providers:~1.0
+$ composer require kamilsk/silex-service-providers:~2.0
 ```
 
 ## Pulse of repository
@@ -54,16 +54,15 @@ $ composer require kamilsk/silex-service-providers:~1.0
 
 ### General information
 
-[![Build status](https://travis-ci.org/kamilsk/Kilex.svg)](https://travis-ci.org/kamilsk/Kilex)
-[![Tests status](http://php-eye.com/badge/kamilsk/kilex/tested.svg)](http://php-eye.com/package/kamilsk/kilex)
+[![Build status](https://travis-ci.org/kamilsk/Kilex.svg?branch=2.x)](https://travis-ci.org/kamilsk/Kilex)
+[![Tests status](http://php-eye.com/badge/kamilsk/kilex/tested.svg?branch=2.x)](http://php-eye.com/package/kamilsk/kilex)
 [![Latest stable version](https://poser.pugx.org/kamilsk/kilex/v/stable.png)](https://packagist.org/packages/kamilsk/kilex)
 [![License](https://poser.pugx.org/kamilsk/kilex/license.png)](https://packagist.org/packages/kamilsk/kilex)
 
 ### Code quality
 
-[![Code coverage](https://scrutinizer-ci.com/g/kamilsk/Kilex/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/kamilsk/Kilex/?branch=master)
-[![Scrutinizer code quality](https://scrutinizer-ci.com/g/kamilsk/Kilex/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kamilsk/Kilex/?branch=master)
-[![Code Climate code quality](https://codeclimate.com/github/kamilsk/Kilex/badges/gpa.svg)](https://codeclimate.com/github/kamilsk/Kilex)
+[![Code coverage](https://scrutinizer-ci.com/g/kamilsk/Kilex/badges/coverage.png?b=2.x)](https://scrutinizer-ci.com/g/kamilsk/Kilex/?branch=2.x)
+[![Scrutinizer code quality](https://scrutinizer-ci.com/g/kamilsk/Kilex/badges/quality-score.png?b=2.x)](https://scrutinizer-ci.com/g/kamilsk/Kilex/?branch=2.x)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2a986f75-1b01-4dcf-882a-a2f842e22a9c/big.png)](https://insight.sensiolabs.com/projects/2a986f75-1b01-4dcf-882a-a2f842e22a9c)
 

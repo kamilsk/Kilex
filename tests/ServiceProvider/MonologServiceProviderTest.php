@@ -39,8 +39,10 @@ class MonologServiceProviderTest extends TestCase
 
     /**
      * @test
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Identifier "config" is not defined.
      */
-    public function setupEmpty()
+    public function setupFailure()
     {
         $app = $this->getApplication();
         (new MonologServiceProvider())->setup($app);

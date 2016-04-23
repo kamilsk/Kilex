@@ -23,9 +23,6 @@ class DoctrineServiceProvider
      */
     public function setup(\Pimple $app)
     {
-        if (!$app->offsetExists('config') || !isset($app->offsetGet('config')['doctrine'])) {
-            return;
-        }
         $config = $app->offsetGet('config');
         ConfigResolver::resolve((array)$config['doctrine:dbal']);
         $app['connections'] = $app::share(function () use ($config) {
