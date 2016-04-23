@@ -2,7 +2,7 @@
 >
 > Bridge between [Cilex](https://github.com/Cilex/Cilex) and [Silex](https://github.com/silexphp/Silex).
 
-## [Documentation](http://kamilsk.github.io/Kilex/)
+## [Documentation](https://github.com/kamilsk/Kilex/wiki)
 
 ## Examples of usage
 
@@ -43,6 +43,12 @@ $ composer require kamilsk/silex-service-providers:~1.0
 ```
 
 ## Pulse of repository
+
+| Version / PHP | 5.5 | 5.6 | 7.0 | HHVM | Support                                           |
+|:-------------:|:---:|:---:|:---:|:----:|:--------------------------------------------------|
+| 1.0.x         | +   | +   | +   | +    | Security support and bug fixing until 10 Jul 2016 |
+| 1.1.x LTS     | -   | +   | +   | +    | Security support and bug fixing until 31 Dec 2018 |
+| 2.x           | -   | -   | +   | +    | Active support and new features until 3 Dec 2017  |
 
 ### [Changelog](CHANGELOG.md)
 
