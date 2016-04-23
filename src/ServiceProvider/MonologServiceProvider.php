@@ -20,8 +20,6 @@ class MonologServiceProvider
      * @throws \InvalidArgumentException
      *
      * @api
-     *
-     * @quality:method [B]
      */
     public function setup(\Pimple $app)
     {
@@ -33,19 +31,29 @@ class MonologServiceProvider
             return $app['loggers']->getDefaultChannel();
         });
         $app['monolog.bridge'] = $app::share(function (\Pimple $app) {
-            return function (OutputInterface $output) use ($app) {
-                if (class_exists('Symfony\Bridge\Monolog\Handler\ConsoleHandler')
-                    && interface_exists('Symfony\Component\EventDispatcher\EventSubscriberInterface')) {
-                    $consoleHandler = new ConsoleHandler($output);
-                    /** @var \Monolog\Logger $logger */
-                    foreach ($app['loggers'] as $logger) {
-                        $logger->pushHandler($consoleHandler);
-                    }
-                }
-            };
+            return $this->getBridge($app);
         });
         $app['monolog.component_factory'] = $app::share(function () {
             return ComponentFactory::withDefaults();
         });
+    }
+
+    /**
+     * @param \Pimple $app
+     *
+     * @return \Closure
+     */
+    private function getBridge(\Pimple $app): \Closure
+    {
+        return function (OutputInterface $output) use ($app) {
+            if (class_exists('Symfony\Bridge\Monolog\Handler\ConsoleHandler')
+                && interface_exists('Symfony\Component\EventDispatcher\EventSubscriberInterface')) {
+                $consoleHandler = new ConsoleHandler($output);
+                /** @var \Monolog\Logger $logger */
+                foreach ($app['loggers'] as $logger) {
+                    $logger->pushHandler($consoleHandler);
+                }
+            }
+        };
     }
 }

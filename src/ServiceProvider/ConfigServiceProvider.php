@@ -44,8 +44,6 @@ class ConfigServiceProvider
      * @throws \DomainException
      *
      * @api
-     *
-     * @quality:method [B]
      */
     public function setup(\Pimple $app)
     {

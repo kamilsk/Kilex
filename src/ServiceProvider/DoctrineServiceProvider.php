@@ -18,8 +18,6 @@ class DoctrineServiceProvider
      * @throws \Doctrine\DBAL\DBALException
      *
      * @api
-     *
-     * @quality:method [B]
      */
     public function setup(\Pimple $app)
     {
