@@ -31,19 +31,12 @@ class ClassAvailabilityTest extends ClassAvailability
     {
         static $excluded = [
             // no dependencies
-            '\Silex\ConstraintValidatorFactory' => true,
-            '\Silex\Translator' => true,
-            '\Symfony\Component\EventDispatcher\DependencyInjection\RegisterListenersPass' => true,
-            '\Symfony\Component\HttpKernel\Bundle\Bundle' => true,
-            '\Symfony\Component\HttpKernel\Bundle\BundleInterface' => true,
-            '\Symfony\Component\HttpKernel\Client' => true,
-            '\Symfony\Component\HttpKernel\DataCollector\DumpDataCollector' => true,
-            '\Symfony\Component\HttpKernel\DependencyInjection\AddClassesToCachePass' => true,
-            '\Symfony\Component\HttpKernel\DependencyInjection\Extension' => true,
+            'Silex\\ConstraintValidatorFactory' => true,
+            'Silex\\Translator' => true,
+            'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => true,
         ];
-        return strpos($class, 'OctoLab\Common\Doctrine\Migration') === 0
-            || strpos($class, 'Symfony\Component\HttpKernel') === 0
-            || !empty($excluded[$class])
-            || !empty($excluded['\\' . $class]);
+        return strpos($class, 'OctoLab\\Common\\Doctrine\\Migration') === 0
+            || strpos($class, 'Symfony\\Component\\HttpKernel') === 0
+            || !empty($excluded[$class]);
     }
 }

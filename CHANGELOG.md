@@ -1,12 +1,16 @@
 [CHANGELOG](http://keepachangelog.com)
 ======================================
 
+# Version 2
+
 ## [2.0.0] - 2016-04-23
 ### Changed
 - PHP support is up to 7.0 version
 - method signature
   - all methods, where it is possible, changed scalar and return type declaration
-- [git diff](/../../compare/1.1.0...2.0.0)
+- [git diff](/../../compare/1.1.0...2.0.2)
+
+# Version 1
 
 ## [1.1.0] - LTS - 2016-04-23
 ### Changed
