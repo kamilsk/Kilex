@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace OctoLab\Kilex\ServiceProvider;
 
-use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use OctoLab\Common\Doctrine\Util\ConfigResolver;
 
@@ -31,7 +30,7 @@ class DoctrineServiceProvider
             }
             return $connections;
         });
-        $app['connection'] = $app::share(function (\Pimple $app) use ($config) : Connection {
+        $app['connection'] = $app::share(function (\Pimple $app) use ($config) : \Doctrine\DBAL\Connection {
             $ids = $app['connections']->keys();
             $default = $config['doctrine:dbal:default_connection'] ?: current($ids);
             return $app['connections'][$default];
