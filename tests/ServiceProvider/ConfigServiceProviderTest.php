@@ -25,12 +25,16 @@ class ConfigServiceProviderTest extends TestCase
 
     /**
      * @test
+     * @dataProvider configProvider
+     *
+     * @param string $extension
+     * @param array $expected
      */
-    public function setupJsonConfig()
+    public function setupSuccess(string $extension, array $expected)
     {
         $app = $this->getApplication();
-        $this->getConfigServiceProvider('config', 'json')->setup($app);
-        foreach ($this->expected as $key => $value) {
+        $this->getConfigServiceProvider('config', $extension)->setup($app);
+        foreach ($expected as $key => $value) {
             self::assertEquals($value, $app['config'][$key]);
         }
     }
@@ -38,39 +42,26 @@ class ConfigServiceProviderTest extends TestCase
     /**
      * @test
      */
-    public function setupPhpConfig()
+    public function setupFailure()
     {
+        self::setExpectedException(
+            \DomainException::class,
+            sprintf('The file "%s" is not supported.', $this->getConfigPath('unsupported', 'file'))
+        );
         $app = $this->getApplication();
-        $this->getConfigServiceProvider('config', 'php')->setup($app);
-        foreach ($this->expected as $key => $value) {
-            self::assertEquals($value, $app['config'][$key]);
-        }
+        $this->getConfigServiceProvider('unsupported', 'file')->setup($app);
+        $app->offsetGet('config');
     }
 
     /**
-     * @test
+     * @return array
      */
-    public function setupYamlConfig()
+    public function configProvider(): array
     {
-        $app = $this->getApplication();
-        $this->getConfigServiceProvider('config', 'yml')->setup($app);
-        foreach ($this->expected as $key => $value) {
-            self::assertEquals($value, $app['config'][$key]);
-        }
-    }
-
-    /**
-     * @test
-     */
-    public function setupUnsupportedConfig()
-    {
-        try {
-            $app = $this->getApplication();
-            $this->getConfigServiceProvider('config', 'xml')->setup($app);
-            $app->offsetGet('config');
-            self::fail(sprintf('%s exception expected.', \DomainException::class));
-        } catch (\DomainException $e) {
-            self::assertTrue(true);
-        }
+        return [
+            ['json', $this->expected],
+            ['php', $this->expected],
+            ['yml', $this->expected],
+        ];
     }
 }

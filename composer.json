@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "kamilsk/common": "~3.0"
+    "kamilsk/common": "^3.0.2"
   },
   "require-dev": {
     "cilex/cilex": "~1.0",

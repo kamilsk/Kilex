@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace OctoLab\Kilex\ServiceProvider;
 
+use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use OctoLab\Common\Doctrine\Util\ConfigResolver;
 
@@ -22,15 +23,15 @@ class DoctrineServiceProvider
     public function setup(\Pimple $app)
     {
         $config = $app->offsetGet('config');
-        ConfigResolver::resolve((array)$config['doctrine:dbal']);
-        $app['connections'] = $app::share(function () use ($config) {
+        ConfigResolver::resolve($config['doctrine:dbal']);
+        $app['connections'] = $app::share(function () use ($config) : \Pimple {
             $connections = new \Pimple();
-            foreach ((array)$config['doctrine:dbal:connections'] as $id => $params) {
+            foreach ($config['doctrine:dbal:connections'] as $id => $params) {
                 $connections->offsetSet($id, DriverManager::getConnection($params));
             }
             return $connections;
         });
-        $app['connection'] = $app::share(function (\Pimple $app) use ($config) {
+        $app['connection'] = $app::share(function (\Pimple $app) use ($config) : Connection {
             $ids = $app['connections']->keys();
             $default = $config['doctrine:dbal:default_connection'] ?: current($ids);
             return $app['connections'][$default];

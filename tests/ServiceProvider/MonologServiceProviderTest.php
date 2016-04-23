@@ -46,11 +46,6 @@ class MonologServiceProviderTest extends TestCase
     {
         $app = $this->getApplication();
         (new MonologServiceProvider())->setup($app);
-        try {
-            $app->offsetGet('logger');
-            self::fail(sprintf('%s exception expected.', \InvalidArgumentException::class));
-        } catch (\InvalidArgumentException $e) {
-            self::assertTrue(true);
-        }
+        $app->offsetGet('logger');
     }
 }

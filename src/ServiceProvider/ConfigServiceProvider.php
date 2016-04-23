@@ -28,7 +28,7 @@ class ConfigServiceProvider
      *
      * @api
      */
-    public function __construct($filename, array $placeholders = [])
+    public function __construct(string $filename, array $placeholders = [])
     {
         $this->filename = $filename;
         $this->placeholders = $placeholders;
@@ -47,7 +47,7 @@ class ConfigServiceProvider
      */
     public function setup(\Pimple $app)
     {
-        $app['config'] = $app::share(function () {
+        $app['config'] = $app::share(function () : SimpleConfig {
             $ext = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));
             switch ($ext) {
                 case 'yml':
@@ -59,7 +59,7 @@ class ConfigServiceProvider
                     $config = (new SimpleConfig(require $this->filename, $this->placeholders));
                     break;
                 default:
-                    throw new \DomainException(sprintf('File "%s" is not supported.', $this->filename));
+                    throw new \DomainException(sprintf('The file "%s" is not supported.', $this->filename));
             }
             return $config;
         });

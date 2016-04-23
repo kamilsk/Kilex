@@ -39,11 +39,6 @@ class DoctrineServiceProviderTest extends TestCase
     {
         $app = $this->getApplication();
         (new DoctrineServiceProvider())->setup($app);
-        try {
-            $app->offsetGet('connection');
-            self::fail(sprintf('%s exception expected.', \InvalidArgumentException::class));
-        } catch (\InvalidArgumentException $e) {
-            self::assertTrue(true);
-        }
+        $app->offsetGet('connection');
     }
 }
