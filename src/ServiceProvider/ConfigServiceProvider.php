@@ -50,8 +50,8 @@ class ConfigServiceProvider
         $app['config'] = $app::share(function () : SimpleConfig {
             $ext = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));
             switch ($ext) {
-                case 'yml':
                 case 'json':
+                case 'yml':
                     $loader = new FileLoader(new FileLocator(), $this->getParser($ext));
                     $config = (new FileConfig($loader))->load($this->filename, $this->placeholders);
                     break;

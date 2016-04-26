@@ -44,7 +44,7 @@ class ConfigServiceProviderTest extends TestCase
      */
     public function setupFailure()
     {
-        self::setExpectedException(
+        $this->setExpectedException(
             \DomainException::class,
             sprintf('The file "%s" is not supported.', $this->getConfigPath('unsupported', 'file'))
         );
