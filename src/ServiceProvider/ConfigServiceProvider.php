@@ -68,6 +68,6 @@ class ConfigServiceProvider
      */
     private function getParser(string $extension): ParserInterface
     {
-        return $extension === 'yml' ? new YamlParser() : new JsonParser();
+        return $extension === 'json' ? new JsonParser() : new YamlParser();
     }
 }
