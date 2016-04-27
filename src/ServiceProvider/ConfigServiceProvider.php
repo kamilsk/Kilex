@@ -49,17 +49,13 @@ class ConfigServiceProvider
     {
         $app['config'] = $app::share(function () : SimpleConfig {
             $ext = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));
-            switch ($ext) {
-                case 'json':
-                case 'yml':
-                    $loader = new FileLoader(new FileLocator(), $this->getParser($ext));
-                    $config = (new FileConfig($loader))->load($this->filename, $this->placeholders);
-                    break;
-                case 'php':
-                    $config = (new SimpleConfig(require $this->filename, $this->placeholders));
-                    break;
-                default:
-                    throw new \DomainException(sprintf('The file "%s" is not supported.', $this->filename));
+            if (in_array($ext, ['json', 'yml', 'yaml'], true)) {
+                $loader = new FileLoader(new FileLocator(), $this->getParser($ext));
+                $config = (new FileConfig($loader))->load($this->filename, $this->placeholders);
+            } elseif ($ext === 'php') {
+                $config = (new SimpleConfig(require $this->filename, $this->placeholders));
+            } else {
+                throw new \DomainException(sprintf('The file "%s" is not supported.', $this->filename));
             }
             return $config;
         });
