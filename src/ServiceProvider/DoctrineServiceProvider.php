@@ -15,6 +15,7 @@ class DoctrineServiceProvider
     /**
      * @param \Pimple $app
      *
+     * @throws \InvalidArgumentException
      * @throws \Doctrine\DBAL\DBALException
      *
      * @api
