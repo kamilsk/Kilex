@@ -6,6 +6,7 @@ namespace OctoLab\Kilex\ServiceProvider;
 
 use OctoLab\Common\Config\FileConfig;
 use OctoLab\Common\Config\Loader\FileLoader;
+use OctoLab\Common\Config\Loader\Parser\IniParser;
 use OctoLab\Common\Config\Loader\Parser\JsonParser;
 use OctoLab\Common\Config\Loader\Parser\ParserInterface;
 use OctoLab\Common\Config\Loader\Parser\YamlParser;
@@ -49,7 +50,7 @@ class ConfigServiceProvider
     {
         $app['config'] = $app::share(function () : SimpleConfig {
             $ext = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));
-            if (in_array($ext, ['json', 'yml', 'yaml'], true)) {
+            if (in_array($ext, ['ini', 'json', 'yml', 'yaml'], true)) {
                 $loader = new FileLoader(new FileLocator(), $this->getParser($ext));
                 $config = (new FileConfig($loader))->load($this->filename, $this->placeholders);
             } elseif ($ext === 'php') {
@@ -68,6 +69,13 @@ class ConfigServiceProvider
      */
     private function getParser(string $extension): ParserInterface
     {
-        return $extension === 'json' ? new JsonParser() : new YamlParser();
+        switch (true) {
+            case $extension === 'json':
+                return new JsonParser();
+            case $extension[0] === 'y':
+                return new YamlParser();
+            default:
+                return new IniParser();
+        }
     }
 }

@@ -59,6 +59,7 @@ class ConfigServiceProviderTest extends TestCase
     public function configProvider(): array
     {
         return [
+            ['ini', $this->expected],
             ['json', $this->expected],
             ['php', $this->expected],
             ['yml', $this->expected],

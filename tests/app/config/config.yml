@@ -1,10 +1,10 @@
 imports:
-  - { resource: parameters.yml }
-  - component/config.yml
+- { resource: parameters.yml }
+- component/config.yml
 
 app:
   placeholder_parameter: %placeholder%
   constant: const(E_ALL)
 
 component:
-  parameter: "base component's parameter will be overwritten by root config"
+  parameter: base component's parameter will be overwritten by root config
