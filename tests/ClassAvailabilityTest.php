@@ -11,6 +11,21 @@ use OctoLab\Common\Test\ClassAvailability;
  */
 class ClassAvailabilityTest extends ClassAvailability
 {
+    const EXCLUDED = [
+        // no dependencies
+        'Silex\\ConstraintValidatorFactory' => true,
+        'Silex\\Translator' => true,
+        'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => true,
+    ];
+    const GROUP_EXCLUDED = [
+        // no dependencies
+        'OctoLab\\Common\\Asset' => true,
+        'OctoLab\\Common\\Composer' => true,
+        'OctoLab\\Common\\Doctrine\\Migration' => true,
+        'OctoLab\\Common\\Twig' => true,
+        'Symfony\\Component\\HttpKernel' => true,
+    ];
+
     /**
      * {@inheritdoc}
      */
@@ -29,14 +44,11 @@ class ClassAvailabilityTest extends ClassAvailability
      */
     protected function isFiltered(string $class): bool
     {
-        static $excluded = [
-            // no dependencies
-            'Silex\\ConstraintValidatorFactory' => true,
-            'Silex\\Translator' => true,
-            'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => true,
-        ];
-        return strpos($class, 'OctoLab\\Common\\Doctrine\\Migration') === 0
-            || strpos($class, 'Symfony\\Component\\HttpKernel') === 0
-            || !empty($excluded[$class]);
+        foreach (self::GROUP_EXCLUDED as $group => $isOn) {
+            if ($isOn && strpos($class, $group) === 0) {
+                return true;
+            }
+        }
+        return array_key_exists($class, self::EXCLUDED) && self::EXCLUDED[$class];
     }
 }

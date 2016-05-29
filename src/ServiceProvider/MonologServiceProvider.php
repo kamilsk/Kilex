@@ -30,7 +30,7 @@ class MonologServiceProvider
         $app['logger'] = $app::share(function (\Pimple $app) : \Monolog\Logger {
             return $app['loggers']->getDefaultChannel();
         });
-        $app['monolog.bridge'] = $app::share(function (\Pimple $app) : \Closure {
+        $app['monolog.bridge'] = $app::share(function (\Pimple $app) : callable {
             return $this->getBridge($app);
         });
         $app['monolog.component_factory'] = $app::share(function () : ComponentFactory {
@@ -41,9 +41,9 @@ class MonologServiceProvider
     /**
      * @param \Pimple $app
      *
-     * @return \Closure
+     * @return callable
      */
-    private function getBridge(\Pimple $app): \Closure
+    private function getBridge(\Pimple $app): callable
     {
         return function (OutputInterface $output) use ($app) {
             if (class_exists('Symfony\Bridge\Monolog\Handler\ConsoleHandler')

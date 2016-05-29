@@ -1,0 +1,50 @@
+# Format for [package metadata compiler](https://github.com/octolab/pmc)
+
+composer:
+  name:         kamilsk/kilex
+  type:         library
+  description:  Bridge between Cilex and Silex.
+  keywords:     [cilex, silex, bridge]
+  homepage:     https://github.com/kamilsk/Kilex
+  license:      MIT
+
+  authors:
+  - name:   Kamil Samigullin
+    email:  kamil@samigullin.info
+    role:   lead
+
+  require:
+    php:            ^7.0
+    kamilsk/common: 3.x-dev
+
+  require-dev:
+    cilex/cilex:            ~1.0
+    doctrine/dbal:          ~2.0
+    silex/silex:            ~1.0
+    symfony/config:         ~3.0
+    symfony/monolog-bridge: ~3.0
+
+  suggest:
+    cilex/cilex:            for integration with Cilex (~1.0 is recommended)
+    doctrine/dbal:          for using DoctrineServiceProvider (~2.0 is recommended)
+    monolog/monolog:        for using MonologServiceProvider (~1.0 is recommended)
+    silex/silex:            for integration with Silex (~1.0 is recommended)
+    symfony/config:         for using ConfigServiceProvider (~3.0 is recommended)
+    symfony/monolog-bridge: optional for MonologServiceProvider (~3.0 is recommended)
+
+  autoload:
+    psr-4:
+      OctoLab\Kilex\: src/
+
+  autoload-dev:
+    psr-4:
+      OctoLab\Kilex\: tests/
+
+  extra:
+    branch-alias:
+      dev-master: 1.x-dev
+      dev-2.x:    2.x-dev
+
+  support:
+    irc:    irc://irc.gitter.im/kamilsk/small-tools
+    issues: https://github.com/kamilsk/Kilex/issues
