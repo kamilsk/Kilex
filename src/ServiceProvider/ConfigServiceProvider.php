@@ -31,6 +31,7 @@ class ConfigServiceProvider
      */
     public function __construct(string $filename, array $placeholders = [])
     {
+        assert('is_readable($filename)');
         $this->filename = $filename;
         $this->placeholders = $placeholders;
     }

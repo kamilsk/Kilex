@@ -24,6 +24,7 @@ class MonologServiceProvider
     public function setup(\Pimple $app)
     {
         $config = $app->offsetGet('config');
+        assert('$config instanceof \OctoLab\Common\Config\SimpleConfig');
         $app['loggers'] = $app::share(function (\Pimple $app) use ($config) : Locator {
             return new Locator($config['monolog'], $app['monolog.component_factory'], $app['app.name']);
         });

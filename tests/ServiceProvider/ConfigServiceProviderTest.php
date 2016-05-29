@@ -46,10 +46,10 @@ class ConfigServiceProviderTest extends TestCase
     {
         $this->setExpectedException(
             \DomainException::class,
-            sprintf('The file "%s" is not supported.', $this->getConfigPath('unsupported', 'file'))
+            sprintf('The file "%s" is not supported.', $this->getConfigPath('others/unsupported', 'file'))
         );
         $app = $this->getApplication();
-        $this->getConfigServiceProvider('unsupported', 'file')->setup($app);
+        $this->getConfigServiceProvider('others/unsupported', 'file')->setup($app);
         $app->offsetGet('config');
     }
 
