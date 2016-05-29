@@ -22,14 +22,14 @@ class DoctrineServiceProvider
      */
     public function setup(\Pimple $app)
     {
-        $config = $app->offsetGet('config');
+        $config = $app['config'];
         assert('$config instanceof \OctoLab\Common\Config\SimpleConfig');
         ConfigResolver::resolve($config['doctrine:dbal']);
         $app['connections'] = $app::share(function () use ($config) : \Pimple {
             $connections = new \Pimple();
             foreach ($config['doctrine:dbal:connections'] as $id => $params) {
                 assert('is_string($id)');
-                $connections->offsetSet($id, DriverManager::getConnection($params));
+                $connections[$id] = DriverManager::getConnection($params);
             }
             return $connections;
         });

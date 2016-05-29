@@ -73,10 +73,10 @@ class ConfigServiceProvider
         switch (true) {
             case $extension === 'json':
                 return new JsonParser();
-            case $extension[0] === 'y':
-                return new YamlParser();
-            default:
+            case $extension[0] === 'i':
                 return new IniParser();
+            default:
+                return new YamlParser();
         }
     }
 }
