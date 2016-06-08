@@ -13,17 +13,29 @@ class ClassAvailabilityTest extends ClassAvailability
 {
     const EXCLUDED = [
         // no dependencies
-        'Silex\\ConstraintValidatorFactory' => true,
-        'Silex\\Translator' => true,
-        'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => true,
+        'OctoLab\\Common\\Command\\Doctrine\\CheckMigrationCommand' => ['doctrine/migrations'],
+        'Symfony\\Bridge\\Monolog\\Logger' => ['symfony/http-foundation', 'symfony/http-kernel'],
+        'Symfony\\Bridge\\Twig\\DataCollector\\TwigDataCollector' => ['symfony/http-kernel', 'symfony/http-foundation'],
+        'Symfony\\Bridge\\Twig\\TwigEngine' => ['symfony/templating'],
     ];
     const GROUP_EXCLUDED = [
         // no dependencies
-        'OctoLab\\Common\\Asset' => true,
-        'OctoLab\\Common\\Composer' => true,
-        'OctoLab\\Common\\Doctrine\\Migration' => true,
-        'OctoLab\\Common\\Twig' => true,
-        'Symfony\\Component\\HttpKernel' => true,
+        'OctoLab\\Common\\Doctrine\\Migration' => ['doctrine/migrations'],
+        'Symfony\\Bridge\\Monolog\\Handler' => ['symfony/http-foundation', 'symfony/http-kernel'],
+        'Symfony\\Bridge\\Monolog\\Processor' => ['symfony/http-foundation', 'symfony/http-kernel'],
+        'Symfony\\Bridge\\Twig\\Form' => [
+            'symfony/expression-language',
+            'symfony/form',
+            'symfony/http-foundation',
+            'symfony/http-kernel',
+            'symfony/routing',
+            'symfony/security',
+            'symfony/stopwatch',
+            'symfony/translation',
+            'symfony/var-dumper',
+        ],
+        'Symfony\\Bridge\\Twig\\Translation' => ['symfony/translation'],
+        'Symfony\\Component\\EventDispatcher\\DependencyInjection' => ['symfony/dependency-injection'],
     ];
 
     /**

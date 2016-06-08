@@ -8,6 +8,7 @@
     }
   }, 
   "suggest": {
+    "symfony/event-dispatcher": "for using ConsoleHandler", 
     "symfony/monolog-bridge": "optional for MonologServiceProvider (~3.0 is recommended)", 
     "cilex/cilex": "for integration with Cilex (~1.0 is recommended)", 
     "symfony/config": "for using ConfigServiceProvider (~3.0 is recommended)", 
@@ -47,6 +48,7 @@
     "symfony/asset": "~3.0", 
     "symfony/config": "~3.0", 
     "doctrine/dbal": "~2.0", 
+    "symfony/event-dispatcher": "~3.0", 
     "symfony/monolog-bridge": "~3.0", 
     "symfony/yaml": "~3.0", 
     "pimple/pimple": "~1.0", 
