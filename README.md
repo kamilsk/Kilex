@@ -48,7 +48,7 @@ $ composer require kamilsk/silex-service-providers:~2.0
 |:-------------:|:---:|:---:|:---:|:----:|:--------------------------------------------------|
 | 1.0.x         | +   | +   | +   | +    | Security support and bug fixing until 10 Jul 2016 |
 | 1.1.x LTS     | -   | +   | +   | +    | Security support and bug fixing until 31 Dec 2018 |
-| 2.x           | -   | -   | +   | +    | Active support and new features until 3 Dec 2017  |
+| 2.x           | -   | -   | +   | -    | Active support and new features until 3 Dec 2017  |
 
 ### [Changelog](CHANGELOG.md)
 
