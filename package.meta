@@ -1,4 +1,7 @@
-# Format for [package metadata compiler](https://github.com/octolab/pmc)
+# see [package metadata compiler](https://github.com/octolab/pmc)
+
+common:
+  symfony: &symfony ~3.0
 
 composer:
   name:         kamilsk/kilex
@@ -15,14 +18,17 @@ composer:
 
   require:
     php:            ^7.0
-    kamilsk/common: 3.x-dev
+    kamilsk/common: ~3.1
 
   require-dev:
-    cilex/cilex:            ~1.0
     doctrine/dbal:          ~2.0
-    silex/silex:            ~1.0
-    symfony/config:         ~3.0
-    symfony/monolog-bridge: ~3.0
+    pimple/pimple:          ~1.0
+    symfony/asset:          *symfony
+    symfony/config:         *symfony
+    symfony/console:        *symfony
+    symfony/monolog-bridge: *symfony
+    symfony/twig-bridge:    *symfony
+    symfony/yaml:           *symfony
 
   suggest:
     cilex/cilex:            for integration with Cilex (~1.0 is recommended)

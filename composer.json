@@ -16,7 +16,7 @@
     "silex/silex": "for integration with Silex (~1.0 is recommended)"
   }, 
   "require": {
-    "kamilsk/common": "3.x-dev", 
+    "kamilsk/common": "~3.1", 
     "php": "^7.0"
   }, 
   "autoload": {
@@ -43,11 +43,14 @@
     "bridge"
   ], 
   "require-dev": {
-    "doctrine/dbal": "~2.0", 
-    "cilex/cilex": "~1.0", 
-    "silex/silex": "~1.0", 
+    "symfony/console": "~3.0", 
+    "symfony/asset": "~3.0", 
     "symfony/config": "~3.0", 
-    "symfony/monolog-bridge": "~3.0"
+    "doctrine/dbal": "~2.0", 
+    "symfony/monolog-bridge": "~3.0", 
+    "symfony/yaml": "~3.0", 
+    "pimple/pimple": "~1.0", 
+    "symfony/twig-bridge": "~3.0"
   }, 
   "type": "library", 
   "support": {
