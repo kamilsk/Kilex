@@ -2,6 +2,9 @@
 >
 > Bridge between [Cilex](https://github.com/Cilex/Cilex) and [Silex](https://github.com/silexphp/Silex).
 
+[![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/octolab)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
+
 ## [Documentation](https://github.com/kamilsk/Kilex/wiki)
 
 ## Examples of usage
@@ -57,7 +60,6 @@ $ composer require kamilsk/silex-service-providers:~2.0
 [![Build status](https://travis-ci.org/kamilsk/Kilex.svg?branch=2.x)](https://travis-ci.org/kamilsk/Kilex)
 [![Tests status](http://php-eye.com/badge/kamilsk/kilex/tested.svg?branch=2.x)](http://php-eye.com/package/kamilsk/kilex)
 [![Latest stable version](https://poser.pugx.org/kamilsk/kilex/v/stable.png)](https://packagist.org/packages/kamilsk/kilex)
-[![License](https://poser.pugx.org/kamilsk/kilex/license.png)](https://packagist.org/packages/kamilsk/kilex)
 
 ### Code quality
 
@@ -73,11 +75,6 @@ $ composer require kamilsk/silex-service-providers:~2.0
 [![Daily downloads](https://poser.pugx.org/kamilsk/kilex/d/daily.png)](https://packagist.org/packages/kamilsk/kilex)
 [![Total references](https://www.versioneye.com/php/kamilsk:kilex/reference_badge.svg)](https://www.versioneye.com/php/kamilsk:kilex/references)
 
-### Feedback
-
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kamilsk/small-tools)
-[![@ikamilsk](https://img.shields.io/badge/author-%40ikamilsk-blue.svg)](https://twitter.com/ikamilsk)
-
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
@@ -87,12 +84,13 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 We using `package.meta` to describe the package instead of `composer.json`.
 Thus, changes in `composer.json` file directly is not allowed.
 
-## Security
+## Feedback
 
-If you discover any security related issues, please email feedback@octolab.org instead of using the issue tracker.
+[![@kamilsk](https://img.shields.io/badge/author-%40kamilsk-blue.svg)](https://twitter.com/ikamilsk)
+[![@octolab](https://img.shields.io/badge/sponsor-%40octolab-blue.svg)](https://twitter.com/octolab_inc)
 
-## License
+## Notes
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+- made with ❤️ by [OctoLab](https://www.octolab.org/)
 
 [![Analytics](https://ga-beacon.appspot.com/UA-109817251-23/unsupported/Kilex/readme)](https://github.com/igrigorik/ga-beacon)
