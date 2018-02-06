@@ -17,6 +17,8 @@ class MonologServiceProviderTest extends TestCase
 {
     /**
      * @test
+     *
+     * @throws \Exception
      */
     public function setupSuccess()
     {

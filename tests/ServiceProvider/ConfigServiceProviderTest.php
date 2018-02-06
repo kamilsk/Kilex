@@ -29,6 +29,8 @@ class ConfigServiceProviderTest extends TestCase
      *
      * @param string $extension
      * @param array $expected
+     *
+     * @throws \Exception
      */
     public function setupSuccess(string $extension, array $expected)
     {
@@ -41,6 +43,8 @@ class ConfigServiceProviderTest extends TestCase
 
     /**
      * @test
+     *
+     * @throws \Exception
      */
     public function setupFailure()
     {

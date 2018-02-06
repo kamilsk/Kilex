@@ -31,7 +31,7 @@ class ConfigServiceProvider
      */
     public function __construct(string $filename, array $placeholders = [])
     {
-        assert('is_readable($filename)');
+        \assert('is_readable($filename)');
         $this->filename = $filename;
         $this->placeholders = $placeholders;
     }
@@ -41,8 +41,6 @@ class ConfigServiceProvider
      *
      * @throws \InvalidArgumentException
      * @throws \Exception
-     * @throws \Symfony\Component\Config\Exception\FileLoaderLoadException
-     * @throws \Symfony\Component\Config\Exception\FileLoaderImportCircularReferenceException
      * @throws \DomainException
      *
      * @api
@@ -51,7 +49,7 @@ class ConfigServiceProvider
     {
         $app['config'] = $app::share(function () : SimpleConfig {
             $ext = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));
-            if (in_array($ext, ['ini', 'json', 'yml', 'yaml'], true)) {
+            if (\in_array($ext, ['ini', 'json', 'yml', 'yaml'], true)) {
                 $loader = new FileLoader(new FileLocator(), $this->getParser($ext));
                 $config = (new FileConfig($loader))->load($this->filename, $this->placeholders);
             } elseif ($ext === 'php') {

@@ -16,14 +16,13 @@ class DoctrineServiceProvider
      * @param \Pimple $app
      *
      * @throws \InvalidArgumentException
-     * @throws \Doctrine\DBAL\DBALException
      *
      * @api
      */
     public function setup(\Pimple $app)
     {
         $config = $app['config'];
-        assert('$config instanceof \OctoLab\Common\Config\SimpleConfig');
+        \assert('$config instanceof \OctoLab\Common\Config\SimpleConfig');
         ConfigResolver::resolve($config['doctrine:dbal']);
         $app['connections'] = $app::share(function () use ($config) : \Pimple {
             $connections = new \Pimple();

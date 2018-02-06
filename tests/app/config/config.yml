@@ -1,5 +1,5 @@
 imports:
-- { resource: parameters.yml }
+- parameters.yml
 - component/config.yml
 
 app:
